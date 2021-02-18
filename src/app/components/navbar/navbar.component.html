@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img id="img_brand_1" src="../../../assets/img/logoof.png" width="30" height="30" alt="">
+    </a>
+    <a class="navbar-brand" href="#">Welcome to Ofiled</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active" *ngIf="IsLogin">
+                <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="form-inline">
+        <button *ngIf="!IsLogin" class="btn btn-outline-success my-2 my-sm-0 mr-3" type="button"
+            [routerLink]="['login']" routerLinkActive="active">Iniciar Sesión</button>
+        <button *ngIf="IsLogin" class="btn btn-outline-success my-2 my-sm-0 mr-3" type="button" [routerLink]="['login']"
+            routerLinkActive="active" (click)="Logout()">Cerrar Sesión</button>
+        <button *ngIf="!IsLogin" class="btn btn-outline-success my-2 my-sm-0 mr-3" type="button" [routerLink]="['register']"
+            routerLinkActive="active">Registrarse</button>
+    </div>
+</nav>

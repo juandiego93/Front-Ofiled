@@ -1,0 +1,82 @@
+<div id="register_container">
+    <div class="container">
+        <div class="mt-5">
+            <div class="main-login main-center">
+                <h2 class="text-center mb-3">Formulario de Registro</h2>
+                <form [formGroup]="FormGroup_" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Nombre Completo</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input formControlName="fullname" type="text" class="form-control" name="name" id="name"
+                                    placeholder="Ingrese su(s) nombre(s) y apellidos" />
+                            </div>
+                        </div>
+                        <small class="error"
+                            *ngIf="FormGroup_.hasError('required','fullname') && FormGroup_.controls.fullname.touched">
+                            El nombre completo es requerido
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Nombre de usuario</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input formControlName="username" type="text" class="form-control" name="username"
+                                    id="username" placeholder="Ingrese un nombre de usuario" />
+                            </div>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('required','username') && FormGroup_.controls.username.touched">
+                                El nombre de usuario es requerido
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input formControlName="email" type="email" class="form-control" name="email" id="email"
+                                    placeholder="Ingrese su correo electrónico" />
+                            </div>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('required','email') && FormGroup_.controls.email.touched">
+                                El email es requerido
+                            </small>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('pattern','email') && FormGroup_.controls.email.touched">
+                                El email es inválido
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="password" class="cols-sm-2 control-label">Contraseña</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input formControlName="password" type="password" class="form-control" name="password"
+                                    id="password" placeholder="Ingrese una contraseña alfanumérica" />
+                            </div>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('required','password') && FormGroup_.controls.password.touched">
+                                La contraseña es requerida
+                            </small>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="confirm" id="confirm"
+                                    placeholder="Confirm your Password" />
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button"
+                            [disabled]="!FormGroup_.valid">
+                            Finalizar Registro
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

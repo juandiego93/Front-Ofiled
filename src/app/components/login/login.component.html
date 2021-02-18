@@ -1,0 +1,47 @@
+<div id="login_container">
+    <div class="container mt-3 ml-3">
+        <div class="mt-5 float_">
+            <div class="main-login main-center">
+                <h2 class="text-center mb-3">Iniciar Sesión</h2>
+                <form [formGroup]="FormGroup_" (ngSubmit)="ngOnSubmit()" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input formControlName="email" type="email" class="form-control" name="email" id="email"
+                                    placeholder="Ingrese su correo electrónico" />
+                            </div>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('required','email') && FormGroup_.controls.email.touched">
+                                El email es requerido
+                            </small>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('pattern','email') && FormGroup_.controls.email.touched">
+                                El email es inválido
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="password" class="cols-sm-2 control-label">Contraseña</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input formControlName="password" type="password" class="form-control" name="password"
+                                    id="password" placeholder="Ingrese una contraseña alfanumérica" />
+                            </div>
+                            <small class="error"
+                                *ngIf="FormGroup_.hasError('required','password') && FormGroup_.controls.password.touched">
+                                La contraseña es requerida
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button"
+                            [disabled]="!FormGroup_.valid">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
